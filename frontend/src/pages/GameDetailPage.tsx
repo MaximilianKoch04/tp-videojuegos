@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Game } from "../schemas/game.schema";
+import type { Game } from "../schemas/game.schema";
 
 export function GameDetailPage() {
   const { id } = useParams();

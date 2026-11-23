@@ -14,7 +14,7 @@ export function AdminPage() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<GameFormData>({
+  } = useForm({
     resolver: zodResolver(gameFormSchema),
     defaultValues: {
       title: "",
