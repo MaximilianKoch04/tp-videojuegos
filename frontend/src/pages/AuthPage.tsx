@@ -32,9 +32,9 @@ export function AuthPage() {
     }
   };
 
-  const handleGithubLogin = async () => {
+  const handleSocialLogin = async (provider: "github" | "google") => {
     await signIn.social({
-      provider: "github",
+      provider,
       callbackURL: window.location.origin,
     });
   };
@@ -98,9 +98,25 @@ export function AuthPage() {
           o continuá con
         </div>
 
-        <button type="button" onClick={handleGithubLogin} className="btn btn-github">
-          Continuar con GitHub
-        </button>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+          <button
+            type="button"
+            onClick={() => handleSocialLogin("google")}
+            className="btn"
+            style={{ width: "100%", background: "#ffffff", color: "#0f172a", fontWeight: 600 }}
+          >
+            Continuar con Google
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handleSocialLogin("github")}
+            className="btn btn-github"
+            style={{ width: "100%" }}
+          >
+            Continuar con GitHub
+          </button>
+        </div>
 
         <p style={{ marginTop: "1.25rem", textAlign: "center", fontSize: "0.9rem", color: "#94a3b8" }}>
           {isRegister ? "¿Ya tenés cuenta?" : "¿No tenés cuenta?"}{" "}

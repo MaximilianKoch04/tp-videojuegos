@@ -8,6 +8,8 @@ export interface IGame extends Document {
   releaseDate: Date;
   isMultiplayer: boolean;
   coverUrl?: string;
+  userId?: string;
+  sellerName?: string;
 }
 
 const gameSchema = new Schema<IGame>(
@@ -19,6 +21,8 @@ const gameSchema = new Schema<IGame>(
     releaseDate: { type: Date, required: true },
     isMultiplayer: { type: Boolean, default: false },
     coverUrl: { type: String, trim: true },
+    userId: { type: String, index: true },
+    sellerName: { type: String, trim: true, default: "Tienda Oficial" },
   },
   {
     timestamps: true,

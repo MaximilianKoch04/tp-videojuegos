@@ -21,16 +21,13 @@ export function Navbar() {
       <div className="nav-links">
         <Link to="/">Catálogo</Link>
 
-        {isAdmin && (
-          <Link to="/admin" className="btn btn-secondary">
-            Panel Admin
-          </Link>
-        )}
-
         {isPending ? (
           <span style={{ color: "#94a3b8", fontSize: "0.9rem" }}>Cargando...</span>
         ) : session?.user ? (
           <>
+            <Link to="/admin" className="btn btn-secondary">
+              {isAdmin ? "Panel Admin" : "Mis Juegos"}
+            </Link>
             <span style={{ fontSize: "0.9rem" }}>
               Hola, <strong>{session.user.name}</strong>{" "}
               <span className={`badge ${isAdmin ? "badge-admin" : ""}`}>
