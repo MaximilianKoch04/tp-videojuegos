@@ -5,9 +5,7 @@ export const createGameSchema = z.object({
   developer: z.string().min(1, "El estudio desarrollador es obligatorio"),
   genre: z.string().min(1, "El género es obligatorio"),
   price: z.coerce.number().min(0, "El precio no puede ser negativo"),
-  releaseDate: z.coerce.date({
-    errorMap: () => ({ message: "Fecha de lanzamiento inválida" }),
-  }),
+  releaseDate: z.coerce.date({ message: "Fecha de lanzamiento inválida" }),
   isMultiplayer: z.boolean().default(false),
   coverUrl: z.string().url("Debe ser una URL válida").optional().or(z.literal("")),
 });
